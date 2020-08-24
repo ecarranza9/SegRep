@@ -13,7 +13,7 @@ router.get('/', async (req,res)=>{
     const pedidos = await Pedido.findAll(
         {
             where:{estado:0},
-            order:[['prioridad','DESC']]
+            order:[['prioridad','ASC']]
         
         }
         
@@ -214,12 +214,13 @@ router.post('/pedido/asignar/:id', async(req,res)=>{
     const pedidoId = req.params.id
     const pedido = await Pedido.findByPk(pedidoId);
 
-    const {tecnicoId, fecha_asignacion,fecha_ejecucion} = req.body
+    const {tecnicoId, fecha_asignacion,hora_asignacion,fecha_ejecucion} = req.body
 try{
    let pedidoAsignado = Pedidotecnico.create({
             pedidoId,
             tecnicoId,
             fecha_asignacion,
+            hora_asignacion,
             fecha_ejecucion
    });
 

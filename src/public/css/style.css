@@ -1,5 +1,10 @@
-#boton{
+body{
+  font-family:"Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+  background-attachment: fixed;
+}
 
+
+#boton{
   margin: 0 auto;
   position:relative;
   top:50%; 

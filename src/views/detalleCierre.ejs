@@ -2,17 +2,22 @@
 
 
 <div class="container pt-5">
-    
+    <%const arrtecnico = []%>
     <% var tecnico_pedido = pedidoAsignado[0].tecnicoId %>
-    <%const arrtecnico = 0;%>
-    <%if(tecnico_pedido <= 4){%>
-     <% const arrtecnico = tecnico_pedido;%>
-        <%} else{%>
-            <%const arrtecnico = tecnico_pedido.split(",")%>
-    <%}%>
-   <%const filtrado = tecnicos.filter(function(e,key) {%>
-         <%return e[key] == arrtecnico[key];%>
+    <%console.log(typeof(tecnico_pedido))%>
+    <% if(typeof(tecnico_pedido) != 'number'){%>
+    <%const arrtecnico = tecnico_pedido.split(",")%>
+    <%var filtrado = tecnicos.filter(function(e,key) {%>
+        <%return e.id == arrtecnico[key]%>
+          <%})%>
+<%} else {%>
+<%const arrtecnico = tecnico_pedido %>
+<%console.log(arrtecnico)%>
+<%var filtrado = tecnicos.filter(function(e,key) {%>
+    <%return e.id == arrtecnico%>
       <%})%>
+      <%}%>
+
 
 
     <div class="row">
