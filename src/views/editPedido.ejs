@@ -1,0 +1,131 @@
+<%- include ('partials/__header');  %> 
+
+
+
+<div class="container-fluid" id="cont_form">
+
+    <h1>Editar pedido</h1>
+
+    <button type="button" class="btn btn-danger pd-5" data-toggle="modal" data-target="#exampleModal">
+      Prioridades
+    </button>
+
+    <div class="row pt-5">
+
+     
+
+       <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Prioridades</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul>
+              <li>1 - Emergencia</li>
+              <li>2 - Urgencia</li>
+              <li>3 - Necesario</li>
+              <li>4 - Deseable</li>
+              <li>5 - Prorrogable</li>
+
+              
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Button trigger modal -->
+
+
+        <div class="col-md-6">
+
+<form action="/pedido/edit/<%=id%>" method="POST">
+
+    <div class="form-group">
+        <label for=""><strong>Interno</strong></label>
+        <input type="number" name="interno" class="form-control" value="<%=pedido.interno%>">
+    </div>
+
+    
+    <div class="form-group">
+        <label for=""><strong>Fecha apertura</strong></label>
+        <input type="date" name="fecha_apertura" class="form-control"  value="<%=pedido.fecha_apertura %>"required>
+    </div>
+
+    <div class="form-group">
+      <label for=""><strong>Hora apertura</strong></label>
+      <input type="time" name="hora_apertura" class="form-control"  value="<%=pedido.hora_apertura %>"required>
+  </div>
+
+    <div class="form-group">
+        <label for=""><strong>Solicitud</strong></label>
+        <input type="text" name="solicitud" class="form-control"  value="<%=pedido.solicitud %>">
+    </div>
+
+    
+    <div class="form-group">
+        <label for=""><strong>Ubicacion del Equipo</strong></label>
+        <input type="text" name="ubicacion_eqp" class="form-control" value="<%=pedido.ubicacion_eqp %>">
+    </div>
+
+    <div class="form-group">
+        <label for=""><strong>Emisor del mensaje</strong></label>
+        <input type="text" name="emisor" class="form-control"  value="<%=pedido.emisor %>">
+    </div>
+
+    <div class="form-group">
+        <div class="container-fluid">
+        <label for=""><strong>Metodo de contacto</strong></label> <br>
+        <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="metodo_contacto" value="Whatsapp">WhatsApp
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="metodo_contacto" value="Mail">Mail
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="metodo_contacto"value="Llamada telefonica">Llamada Telefonica
+            </label>
+          </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <label for=""><strong>Indicaciones</strong></label>
+        <input type="text" name="indicaciones"class="form-control"  value="<%=pedido.indicaciones %>">
+    </div>
+
+    <div class="form-group">
+        <label for=""><strong>Prioridad</strong></label>
+        <input type="number" name="prioridad" min="1" max="5"  value="<%=pedido.prioridad %>">
+    </div>
+
+    <div class="form-group">
+        <input type="number" name="estado" value= "0" style="display: none;">
+    </div>
+    <div class="form-group">
+    <button class="btn btn-success"type="submit">Actualizar</button>
+  </div>
+ 
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+<%- include ('partials/__footer');  %> 

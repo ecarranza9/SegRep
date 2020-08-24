@@ -1,0 +1,54 @@
+<%- include ('partials/__header');  %> 
+
+
+<div class="container pt-5">
+
+    <% var tecnico_pedido = pedidoAsignado[0].tecnicoId %>
+    <%const arrtecnico = 0;%>
+    <%if(tecnico_pedido <= 4){%>
+     <% const arrtecnico = tecnico_pedido;%>
+        <%} else{%>
+            <%const arrtecnico = tecnico_pedido.split(",")%>
+    <%}%>
+   <%const filtrado = tecnicos.filter(function(e,key) {%>
+         <%return e[key] == arrtecnico[key];%>
+      <%})%>
+
+    
+   
+    <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center"> <strong> Detalle de asignacion </strong> </div>
+                            <div class="card-body">
+                                    <th>
+                                        <td><strong>Nro Ticket:</strong> <%=pedido[0].id%></td><br>
+                                        <td><strong>Interno involucrado:</strong> <%=pedido[0].interno%></td><br>
+                                        <td> <strong>Fecha y hora pedido:</strong> <%=pedido[0].fecha_apertura%> <%=pedido[0].hora_apertura%></td><br>
+                                        <td><strong>Solicitud:</strong> <%=pedido[0].solicitud %></td><br>
+                                        <td><strong>Indicaciones:</strong> <%=pedido[0].indicaciones %></td><br>
+                                        <td><strong>Tecnico/Tecnicos Asignados:</strong>
+                                        <%for(var i = 0; i < filtrado.length; i++){%>
+                                        </td><li><%=filtrado[i].nombre%> <%=filtrado[i].apellido%></li>   </td>
+                                        <%}%>
+                                        <td><strong>Fecha y hora de Asignacion a Tecnico:</strong> <%=pedidoAsignado[0].fecha_asignacion%></td><br>
+                                        <td><strong>Estimacion de ejecución:</strong>   <%=pedidoAsignado[0].fecha_ejecucion%></td>
+                                        
+
+                                    </th>
+                                    
+                            </div>
+
+            </div>
+
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+<%- include ('partials/__footer');  %> 

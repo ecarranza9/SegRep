@@ -1,0 +1,70 @@
+<%- include ('partials/__header');  %> 
+
+
+<div class="container-fluid pt-5">
+
+    <div class="container-fluid">
+        <!--Tabla-->
+        <table class="table table-hover">
+        <thead>
+        <tr>
+        <th>N° Ticket</th>
+        <th>Interno</th>
+        <th>Fecha / Hora apertura</th>
+        <th>Solicitud</th>
+        <th>Ubicacion Equipo</th>
+        <th>Emisor</th>
+        <th>Metodo de contacto</th>
+        <th>Indicaciones</th>
+        <th>Prioridad</th>
+        <th>Estado</th> 
+        <th>Acciones</th>             
+        </tr>
+ 
+        </thead>
+        <tbody>
+
+            <% for(var i = 0; i < pedidos.length; i++){ %>
+                <tr>
+                    <td><%= pedidos[i].id %> <a href="/pedido/<%=pedidos[i].id%>">Borrar pedido</a></td>
+                    <td><%= pedidos[i].interno %></td>
+                    <td>Fecha:<%= pedidos[i].fecha_apertura%> Hora:<%= pedidos[i].hora_apertura%></td>
+                    <td><%= pedidos[i].solicitud %></td>
+                    <td><%= pedidos[i].ubicacion_eqp %></td>
+                    <td><%= pedidos[i].emisor %></td>
+                    <td><%= pedidos[i].metodo_contacto %></td>
+                    <td><%= pedidos[i].indicaciones %></td>
+                    <td><%= pedidos[i].prioridad %></td>
+                    <td><%= pedidos[i].estado %></td>
+                        <td><a class="btn btn-primary" href="/cierres/detalle/<%=pedidos[i].id %>">Detalles de cierre</a></td>
+                </tr>
+
+
+
+                <%}%>
+
+    
+        </tbody>
+        
+        
+        
+        
+        
+        </table>
+        
+        </div>
+    
+    </div>
+
+
+
+
+
+
+
+</div>
+    
+
+
+
+<%- include ('partials/__footer');  %> 

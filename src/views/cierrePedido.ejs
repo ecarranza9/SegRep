@@ -1,0 +1,115 @@
+<%- include ('partials/__header');  %> 
+
+
+
+
+<div class="container-fluid" id="cont_form">
+
+    <h1>Formulario de Cierre de pedido</h1>
+
+    <div class="row">
+
+
+        <div class="col-md-6">
+
+<form action="/pedido/cierre/<%=id%>" method="POST">
+
+    <div class="form-group">
+       
+        <label for=""><strong>Resolucion</strong></label> <br>
+        <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="resolucion" value="Resuelta por reparación"> Resuelta por reparación
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="resolucion" value="Reemplazo equipo">Reemplazo de Equipo
+            </label>
+          </div>
+   
+    
+</div>
+    
+    <div class="form-group">
+        <label for=""><strong>Fecha de Cierre</strong></label>
+        <input type="date" name="fecha_cierre" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for=""><strong>Hora de Cierre</strong></label>
+        <input type="time" name="hora_cierre" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for=""><strong>Tipo de Avería</strong></label>
+        <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="tipo_averia" value="EE"> Electrica/Electronica
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="tipo_averia" value="MH">Mecanica / Hidraulica
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="tipo_averia" value="PM">Mantenimiento Programado
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="tipo_averia" value="UO">Uso / Operación
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="tipo_averia" value="NE">Negligencia Operativa
+            </label>
+          </div>
+        
+    </div>
+
+    
+    <div class="form-group">
+        <label for=""><strong>Aprobación</strong></label>
+        <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="aprobacion" value="Si">Si aprobó
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="aprobacion" value="No">No aprobó
+            </label>
+          </div>
+    </div>
+
+    <div class="form-group">
+        <label for=""><strong>Observaciones de cierre</strong></label>
+        <input type="text" name="observaciones" class="form-control">
+    </div>
+
+    
+    <button class="btn btn-success"type="submit">Cerrar Pedido</button>
+ 
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<%- include ('partials/__footer');  %> 

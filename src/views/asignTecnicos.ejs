@@ -1,0 +1,46 @@
+<%- include ('partials/__header');  %> 
+
+
+
+<div class="container-fluid">
+
+<h2>¿A qué técnico le asignarás esta avería?</h2>
+
+<form action="/pedido/asignar/<%=id%>" method="POST">
+    
+    <div class="form-group">
+        <% for(var i = 0; i < tecnicos.length; i++){ %>
+
+            <label><input type="checkbox" name="tecnicoId" value="<%=tecnicos[i].id%>"> <%=tecnicos[i].nombre%></label><br>
+
+        <%}%>
+    </div>
+
+    <div class="form-group">
+    <label for="">Fecha de asignación del pedido</label>
+    <input type="date" name="fecha_asignacion" value="2020-08-16">
+    </div>
+
+    <div class="form-group">
+        <label for="">Hora de asignación del pedido</label>
+        <input type="time" name="hora_asignacion" value="2020-08-16">
+        </div>
+
+    <div class="form-group">
+        <label for="">Fecha de ejecución estimada del pedido</label>
+        <input type="date" name="fecha_ejecucion">
+        </div>
+
+
+            <button type="submit" class="btn btn-primary">Asignar técnico/s</button>
+
+
+
+
+
+</form>
+
+</div>
+
+
+<%- include ('partials/__footer');  %> 

@@ -1,0 +1,77 @@
+<%- include ('partials/__header');  %> 
+
+
+
+<% if(success_msg && success_msg.length > 0) { %> 
+   
+    <div  class="alert alert-success alert-dismissible fade show" role="alert" id="error">
+        <%=success_msg%>
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         
+        </button>
+      </div>
+
+<% } %> 
+<div class="container-fluid">
+<div class="card">
+<div class="card-header">Tecnicos disponibles</div>
+    <div class="card-body">
+        <% for(var i = 0; i < tecnicos.length; i++){%>
+        <tr>
+            <a href="/tecnico/<%=tecnicos[i].id%>" class="btn btn-danger">x</a> <td><%=tecnicos[i].id%></td> 
+            <td><%=tecnicos[i].nombre%> <%=tecnicos[i].apellido%></td> <br>
+        </tr>
+
+    <%}%>
+</div>
+
+<div class="card-body">
+
+    <form action="/tecnico/nuevo" method="POST">
+    
+        <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" name="nombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Apellido</label>
+            <input type="text" name="apellido" class="form-control">
+        </div>
+
+        <button class="btn btn-success"type="submit">Agregar Tecnico</button>
+
+    
+    
+    </form>
+
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<%- include ('partials/__footer');  %> 
