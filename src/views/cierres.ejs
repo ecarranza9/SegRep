@@ -17,7 +17,8 @@
         <th>Metodo de contacto</th>
         <th>Indicaciones</th>
         <th>Prioridad</th>
-        <th>Estado</th> 
+        <th>Estado</th>
+        <th>Reporte</th> 
         <th>Acciones</th>             
         </tr>
  
@@ -36,6 +37,14 @@
                     <td><%= pedidos[i].indicaciones %></td>
                     <td><%= pedidos[i].prioridad %></td>
                     <td><%= pedidos[i].estado %></td>
+                    <td><%if(cierres[i].reporte == null){%>
+                            NO
+                    <%} else {%>
+                            SI
+                        <%}%>
+                    </td>
+                
+                    </td>
                         <td><a class="btn btn-primary" href="/cierres/detalle/<%=pedidos[i].id %>">Detalles de cierre</a></td>
                 </tr>
 

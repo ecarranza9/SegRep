@@ -14,6 +14,7 @@
 
      
 
+    
        <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -26,24 +27,23 @@
         </div>
         <div class="modal-body">
           <ul>
-              <li>1 - Emergencia</li>
-              <li>2 - Urgencia</li>
-              <li>3 - Necesario</li>
-              <li>4 - Deseable</li>
-              <li>5 - Prorrogable</li>
+              <li>1 - Avería con caracter urgente</li>
+              <li>2 - Avería con caracter necesario </li>
+              <li>3 - Entrenamiento</li>
+              <li>4 - Capacitacion</li>
+              <li>5 - Otros</li>
 
               
           </ul>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
   </div>
 
    <!-- Button trigger modal -->
-
 
         <div class="col-md-6">
 
@@ -77,29 +77,38 @@
     </div>
 
     <div class="form-group">
-        <label for=""><strong>Emisor del mensaje</strong></label>
+      <label for=""><strong>Nombre y Apellido solicitante</strong></label>
         <input type="text" name="emisor" class="form-control"  value="<%=pedido.emisor %>">
     </div>
 
-    <div class="form-group">
-        <div class="container-fluid">
-        <label for=""><strong>Metodo de contacto</strong></label> <br>
+    <label for=""><strong>Metodo de contacto</strong></label> <br>
+    <select id="contacto" name="metodo_contacto" onChange="mostrar(this.value)" required>
         <div class="form-check">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="metodo_contacto" value="Whatsapp">WhatsApp
+              <option type="radio" class="form-check-input" name="metodo_contacto" value="WhatsApp">WhatsApp
             </label>
           </div>
           <div class="form-check">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="metodo_contacto" value="Mail">Mail
+              <option type="radio" class="form-check-input" name="metodo_contacto" value="Mail">Mail
             </label>
           </div>
           <div class="form-check">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="metodo_contacto"value="Llamada telefonica">Llamada Telefonica
+              <option type="radio" class="form-check-input" name="metodo_contacto" value="Telefono">Llamada Telefonica
             </label>
           </div>
-    </div>
+    
+        </select>
+
+        <div class="form-group pt-2" id="mail" style = "display:none">
+          <label for=""><strong>Mail</strong></label>
+          <input type="text" name="mail_solicitante" class="form-control">
+      </div>
+    
+      <div class="form-group pt-2" id="telefono" style = "display:none">
+        <label for=""><strong>Telefono</strong></label>
+        <input type="number" name="tel_solicitante" class="form-control">
     </div>
 
     <div class="form-group">

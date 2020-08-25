@@ -10,3 +10,11 @@ body{
   top:50%; 
   left:45%;
 }
+
+#mail{
+  display: none;
+}
+
+#telefono{
+  display: none;
+}

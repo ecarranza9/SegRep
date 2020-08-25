@@ -45,10 +45,10 @@
         <th>Fecha / Hora apertura</th>
         <th>Solicitud</th>
         <th>Ubicación del equipo</th>
-        <th>Emisor</th>
+        <th>Solicitante</th>
         <th>Método de contacto</th>
+        <th>Datos de contacto</th>
         <th>Indicaciones</th>
-        <th>Técnico asignado</th>
         <th>Prioridad</th>
         <th>Estado</th> 
         <th>Acciones</th>             
@@ -66,8 +66,13 @@
                     <td><%= pedidos[i].ubicacion_eqp %></td>
                     <td><%= pedidos[i].emisor %></td>
                     <td><%= pedidos[i].metodo_contacto %></td>
+                    <td><%if(pedidos[i].tel_solicitante == ""){%>
+                        <%=pedidos[i].mail_solicitante%>
+                        <%} else {%>
+                            <%=pedidos[i].tel_solicitante%>
+                            <%}%>
+                    </td>
                     <td><%= pedidos[i].indicaciones %></td>
-                    <td>VER</td>
                     <td><%= pedidos[i].prioridad %></td>
                     <td><%= pedidos[i].estado %></td>
                     <%if(pedidos[i].estado == 0){%>

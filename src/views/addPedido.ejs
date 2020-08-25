@@ -27,11 +27,11 @@
         </div>
         <div class="modal-body">
           <ul>
-              <li>1 - Emergencia</li>
-              <li>2 - Urgencia</li>
-              <li>3 - Necesario</li>
-              <li>4 - Deseable</li>
-              <li>5 - Prorrogable</li>
+              <li>1 - Avería con caracter urgente</li>
+              <li>2 - Avería con caracter necesario </li>
+              <li>3 - Entrenamiento</li>
+              <li>4 - Capacitacion</li>
+              <li>5 - Otros</li>
 
               
           </ul>
@@ -48,7 +48,7 @@
 
         <div class="col-md-6">
 
-<form action="/pedido/nuevo" method="POST">
+<form id="form_pedido" action="/pedido/nuevo" method="POST">
 
     <div class="form-group">
         <label for=""><strong>Interno</strong></label>
@@ -74,36 +74,45 @@
     
     <div class="form-group">
         <label for=""><strong>Ubicacion del Equipo</strong></label>
-        <input type="text" name="ubicacion_eqp" class="form-control">
+        <input type="text" name="ubicacion_eqp" class="form-control" required>
     </div>
 
     <div class="form-group">
-        <label for=""><strong>Emisor del mensaje</strong></label>
-        <input type="text" name="emisor" class="form-control">
+        <label for=""><strong>Nombre y Apellido solicitante</strong></label>
+        <input type="text" name="emisor" class="form-control" required>
     </div>
 
-    <div class="form-group">
-        <div class="container-fluid">
-        <label for=""><strong>Metodo de contacto</strong></label> <br>
+    <label for=""><strong>Metodo de contacto</strong></label> <br>
+    <select id="contacto" name="metodo_contacto" onChange="mostrar(this.value)" required>
         <div class="form-check">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="metodo_contacto" value="Whatsapp">WhatsApp
+              <option type="radio" class="form-check-input" name="metodo_contacto" value="WhatsApp">WhatsApp
             </label>
           </div>
           <div class="form-check">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="metodo_contacto" value="Mail">Mail
+              <option type="radio" class="form-check-input" name="metodo_contacto" value="Mail">Mail
             </label>
           </div>
           <div class="form-check">
             <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="metodo_contacto"value="Llamada telefonica">Llamada Telefonica
+              <option type="radio" class="form-check-input" name="metodo_contacto" value="Telefono">Llamada Telefonica
             </label>
           </div>
-    </div>
-    </div>
+    
+        </select>
+     
+    <div class="form-group pt-2" id="mail" style = "display:none">
+      <label for=""><strong>Mail</strong></label>
+      <input type="text" name="mail_solicitante" id="mail_input" class="form-control">
+  </div>
 
-    <div class="form-group">
+  <div class="form-group pt-2" id="telefono" style = "display:block">
+    <label for=""><strong>Telefono</strong></label>
+    <input type="number" name="tel_solicitante" id="telefono_input" class="form-control">
+</div>
+
+    <div class="form-group pt-2">
         <label for=""><strong>Indicaciones</strong></label>
         <input type="text" name="indicaciones"class="form-control">
     </div>
@@ -117,9 +126,9 @@
         <input type="number" name="estado" value= "0" style="display: none;">
     </div>
     <div class="form-group">
-    <button class="btn btn-success"type="submit">Agregar</button>
+    <button id="boton_form" class="btn btn-success"type="submit">Agregar</button>
   </div>
- 
+
 
 </form>
 

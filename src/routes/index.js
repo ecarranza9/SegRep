@@ -43,11 +43,14 @@ router.post('/pedido/nuevo', (req,res)=>{
         ubicacion_eqp: req.body.ubicacion_eqp,
         emisor: req.body.emisor,
         metodo_contacto: req.body.metodo_contacto,
+        mail_solicitante: req.body.mail_solicitante,
+        tel_solicitante: req.body.tel_solicitante,
         indicaciones: req.body.indicaciones,
         prioridad: req.body.prioridad,
         estado:req.body.estado,
         cierreId: req.body.cierreId
     }).then(pedido=>{
+        console.log(req.body)
         req.flash('success_msg', 'Pedido Agregado al listado');
         res.redirect('/');
     })
@@ -322,8 +325,10 @@ router.get('/cierres/upload/:reporte', function(req,res){
 //cierres de pedidoId
 router.get('/cierres', async (req, res)=>{
     const pedidos = await Pedido.findAll({where:{estado:2}});
+    const cierres = await Cierre.findAll({order:[['pedidoId','ASC']]});
     res.render('cierres',{
         pedidos:pedidos,
+        cierres:cierres
     })
 })
 

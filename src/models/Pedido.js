@@ -22,6 +22,12 @@ module.exports = (sequelize,Datatypes) => {
         metodo_contacto:{
             type: Datatypes.STRING
         },
+        mail_solicitante:{
+            type: Datatypes.STRING
+        },
+        tel_solicitante:{
+            type: Datatypes.STRING
+        },
         indicaciones: {
             type: Datatypes.STRING
         },
