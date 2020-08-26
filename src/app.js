@@ -4,9 +4,10 @@ const app = express();
 const session = require('express-session')
 const flash = require('connect-flash');
 const {Pedido} = require('./sequelize')
-
-
-const indexRoutes = require('./routes/index');
+const pedidosRoutes = require('./routes/pedidos.router');
+const tecnicoRoutes = require('./routes/tecnicos.router');
+const asignacionRoutes = require('./routes/asignacion.router');
+const cierreRoutes = require('./routes/cierres.router');
 
 
 
@@ -31,7 +32,10 @@ app.use(function(req, res,next){
 
 
 
-app.use('/', indexRoutes);
+app.use('/pedido', pedidosRoutes);
+app.use('/asignacion', asignacionRoutes);
+app.use('/cierres', cierreRoutes);
+app.use('/tecnico', tecnicoRoutes);
 
 
 app.use(express.static(path.join(__dirname, 'public')))

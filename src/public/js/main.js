@@ -5,8 +5,6 @@ setTimeout(function() {
 	$('#error').fadeOut(2000);
 
    },3000);
-
-
 var mail = document.getElementById('mail')
 var telefono = document.getElementById('telefono');
 var mail_input = document.getElementById('mail_input')
@@ -39,3 +37,4 @@ form_pedido.onsubmit = function(e){
         form_pedido.submit()
      }
    } 
+   

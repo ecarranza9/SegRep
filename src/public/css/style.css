@@ -3,6 +3,13 @@ body{
   background-attachment: fixed;
 }
 
+#boton_prioridad{
+  margin: 0 auto;
+  position:relative;
+  margin-top: 10px;
+  left:1%;
+}
+
 
 #boton{
   margin: 0 auto;

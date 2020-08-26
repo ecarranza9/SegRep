@@ -1,5 +1,0 @@
-Derivada direccional: En vez de estar paralela al eje x o al eje y, esta en la direccion del vector gradiente. Que este ultimo indica en que direccion la funcion va a aumentandose.
-Derivada parcial: Es una funcion donde uno de los ejes corta con su plano paralelo y se transforma en constante derivando solamente a partir de x.
-Extr Absoluto: Aparece en intervalos o regiones cerradas, donde el valor de funcion en un punto se evalua en los puntos de la Region R y teniendo en cuenta tambien los PC se establecen los maximos y minimos absolutos.
-Estos se evaluan en la frontera y en el interior.
-Extremos relativos: con el criterio de la segunda derivada, se saca determinante (Matriz hessiana) y si este es mayor a 0 hay extremo si es menor es silla
