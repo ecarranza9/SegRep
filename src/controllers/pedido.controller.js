@@ -2,7 +2,7 @@ const {Pedido,Pedidotecnico,Tecnico,Cierre} = require('../sequelize');
 
 //mostrar pedidos
     async function getPedidos(req,res){
-        const messages = [0]
+        const user = req.user
         const pedidos = await Pedido.findAll(
             {
                 where:{estado:0},
@@ -14,6 +14,7 @@ const {Pedido,Pedidotecnico,Tecnico,Cierre} = require('../sequelize');
         const asignacion = await Pedidotecnico.findAll();
     
         res.render('index', {
+            user:user,
             pedidos:pedidos,
             asignacion:asignacion
         })
@@ -53,7 +54,7 @@ Pedido.destroy({
     where: {id:pedidoId,estado:0}
 }).then((pedido)=>{
     if(!pedido){
-        req.flash('success_msg', 'No se puede borrar el pedido porque ya fue asignado');
+        req.flash('error_msg', 'No se puede borrar el pedido porque ya fue asignado');
         res.redirect('/pedido');
     }else{
     req.flash('success_msg', 'Pedido eliminado');
@@ -69,10 +70,12 @@ Pedido.destroy({
 
 async function getEditarPedido(req,res){
     let pedidoId = req.params.id;
+    const user = req.user
     Pedido.findByPk(pedidoId).then((pedido) => {
         if(pedido){
             res.render('editPedido',{
                 id:pedidoId,
+                user:user,
                 pedido:pedido
             })
         }
@@ -106,10 +109,12 @@ async function editarPedido(req,res){
 
 async function getasignarPedido(req,res){
     const id = req.params.id
+    const user = req.user
     Tecnico.findAll()
     .then(tecnicos=>{
     res.render('asignTecnicos',
     {id:id,
+        user:user,
     tecnicos:tecnicos
     }
             )
@@ -143,10 +148,12 @@ try{
 
 async function getcerrarPedido(req,res){
     const id = req.params.id;
+    const user = req.user;
     const pedido = await Pedido.findByPk(id);
 
     res.render('cierrePedido',{
         id:id,
+        user:user,
         pedido:pedido
     })
 

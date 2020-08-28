@@ -50,21 +50,25 @@ async function cierreDownReporte(req,res){
 }
 
 async function getCierre(req,res){
+    const user = req.user
     const pedidos = await Pedido.findAll({where:{estado:2}});
     const cierres = await Cierre.findAll({order:[['pedidoId','ASC']]});
     res.render('cierres',{
         pedidos:pedidos,
+        user:user,
         cierres:cierres
     })
 }
 
 async function detalleCierre(req,res){
-    let pedidoId = req.params.id
+    let pedidoId = req.params.id;
+    const user = req.user;
     const pedido = await Pedido.findAll({where:{id:pedidoId}})
     const cierres = await Cierre.findAll({where:{pedidoId:pedidoId}})
     const pedidoAsignado = await Pedidotecnico.findAll({where:{pedidoId:pedidoId}})
     const tecnicos = await Tecnico.findAll()
     res.render('detalleCierre', {
+        user:user,
         cierres: cierres,
         pedidoAsignado:pedidoAsignado,
         tecnicos:tecnicos,

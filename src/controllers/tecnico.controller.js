@@ -4,16 +4,19 @@ const {Pedido,Tecnico,Pedidotecnico,Cierre} = require('../sequelize');
 
 async function getTecnico(req,res){
     const messages = 0;
+    const user = req.user
     Tecnico.findAll()
     .then(tecnicos => {
         res.render('tecnicos',{
             messages:messages,
+            user:user,
             tecnicos:tecnicos
         })
     })
 }
 
 async function addTecnico(req,res){
+    try{
     Tecnico.create({
         nombre: req.body.nombre,
         apellido: req.body.apellido
@@ -22,6 +25,9 @@ async function addTecnico(req,res){
          res.redirect('/tecnico') 
        
      })
+    }catch(err){
+        console.log(err)
+    }
 }
 
 async function borrarTecnico(req,res){

@@ -4,7 +4,8 @@
 
 <div class="container-fluid" id="cont_form">
 
-    <h1>Editar pedido</h1>
+    <h1>Editar pedido N° <%=id%></h1>
+   
 
     <button type="button" class="btn btn-danger pd-5" data-toggle="modal" data-target="#exampleModal">
       Prioridades
@@ -103,12 +104,12 @@
 
         <div class="form-group pt-2" id="mail" style = "display:none">
           <label for=""><strong>Mail</strong></label>
-          <input type="text" name="mail_solicitante" class="form-control">
+          <input type="text" name="mail_solicitante" class="form-control" value="<%=pedido.mail_solicitante %>">
       </div>
     
       <div class="form-group pt-2" id="telefono" style = "display:none">
         <label for=""><strong>Telefono</strong></label>
-        <input type="number" name="tel_solicitante" class="form-control">
+        <input type="number" name="tel_solicitante" class="form-control"value="<%=pedido.tel_solicitante %>">
     </div>
 
     <div class="form-group">

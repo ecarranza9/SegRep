@@ -18,8 +18,8 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/pedido">Inicio <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="/pedido">Pedidos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/asignacion">Averias Asignadas</a>
@@ -30,6 +30,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="/tecnico">Técnicos Disponibles</a>
               </li>
+              <%if(user){%>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Salir</a>
+              </li>
+           <% }%>
           </ul>
         </div>
       </nav>

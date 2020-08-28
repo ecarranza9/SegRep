@@ -1,0 +1,45 @@
+<%- include ('partials/__header');  %> 
+
+
+<% if(error_msg && error_msg.length > 0) { %> 
+   
+    <div  class="alert alert-danger alert-dismissible fade show" role="alert" id="error">
+        <%=error_msg%>
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         
+        </button>
+      </div>
+
+<% } %> 
+
+
+<div class="container-fluid col-md-6 pt-5">
+
+    <div class="card">
+
+        <div class="card-header">Formulario de ingreso</div>
+
+<form action="/login" method="POST">
+
+<div class="form-group pt-2">
+    <label for="">Nombre Tecnico</label>
+    <input type="text" name="nombre" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="">Password</label>
+    <input type="password" name="password" class="form-control">
+</div>
+
+<button class="btn btn-success"type="submit">Logear</button>
+
+</form>
+
+</div>
+</div>
+
+
+
+
+<%- include ('partials/__footer');  %> 

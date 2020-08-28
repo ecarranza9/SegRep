@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const tecnicoController = require('../controllers/tecnico.controller')
+const { isAuthenticated }  = require('../helpers/auth');
 
 
-router.get('/', tecnicoController.getTecnico)
-router.post('/nuevo', tecnicoController.addTecnico)
-router.get('/:id', tecnicoController.borrarTecnico)
+router.get('/',isAuthenticated, tecnicoController.getTecnico)
+router.post('/nuevo', isAuthenticated, tecnicoController.addTecnico)
+router.get('/:id', isAuthenticated, tecnicoController.borrarTecnico)
 
 
 
