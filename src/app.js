@@ -13,7 +13,6 @@ const moment = require('moment')
 require('./config/passport.js')
 
 //seteo de puertos y motor grafico.
-app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 
@@ -54,6 +53,6 @@ app.use('/', usersRoutes);
 app.use(express.static(path.join(__dirname, 'public')))
 
 //activacion de puerto
-app.listen(app.get('port'), () =>{
+app.listen(process.env.PORT || 3000, () =>{
     console.log("conectado al puerto 3000")
 })
