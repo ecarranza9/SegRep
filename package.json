@@ -6,10 +6,6 @@
   "scripts": {
     "start": "nodemon src/app.js"
   },
-
-  "engines": {
-    "node": "6.11.1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
