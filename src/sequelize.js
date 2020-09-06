@@ -7,8 +7,7 @@ const PedidotecnicoModel = require('./models/Pedidotecnico');
 
 
 const sequelize = new Sequelize({
-    dialect:'sqlite',
-    storage: './proyectomil'
+    dialect:'postgres'
 })
 
 const Pedido = PedidoModel(sequelize,Sequelize);
