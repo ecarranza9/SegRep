@@ -1,5 +1,18 @@
-<%- include ('partials/__header');  %> 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/36d34291a7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Registro de Averías</title>
+</head>
 
+<body>
+
+    <div class="fondo">
 
 <% if(error_msg && error_msg.length > 0) { %> 
    
@@ -14,32 +27,65 @@
 <% } %> 
 
 
-<div class="container-fluid col-md-6 pt-5">
+<% if(success_msg && success_msg.length > 0) { %> 
+   
+    <div  class="alert alert-success alert-dismissible fade show" role="alert" id="error">
+        <%=success_msg%>
 
-    <div class="card">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         
+        </button>
+      </div>
 
-        <div class="card-header">Formulario de ingreso</div>
+<% } %> 
 
-<form action="/login" method="POST">
 
-<div class="form-group pt-2">
-    <label for="">Nombre Tecnico</label>
-    <input type="text" name="nombre" class="form-control">
+
+
+<% if(error && error.length > 0){ %> 
+   
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error">
+        <%=error_msg%>
+        <%=error%>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        
+        </button>
+      </div>
+
+<% } %> 
+
+
+
+<div id="container-login" class="container-fluid col-md-6 pt-5">
+
+    <div class="card" id="card-login">
+
+    <div class="card-header">Formulario de ingreso</div>
+
+<form class="form_login" action="/login" method="POST">
+
+<div class="form-group">
+    <label for="">Usuario</label>
+    <input type="text" name="username" class="form-control">
 </div>
 
 <div class="form-group">
-    <label for="">Password</label>
+    <label for="">Contraseña</label>
     <input type="password" name="password" class="form-control">
 </div>
 
-<button class="btn btn-success"type="submit">Logear</button>
+<div class="container-fluid">
+<span>¿Olvidaste tu contraseña?   <a href="/reset">Presiona aquí</a> para recuperarla.   </span> <br>
+<span>¿No tienes un Usuario?    <a href="/register">Registrate.</a>     </span>
+</div>
+<button id="buton_login" class="btn btn-success"type="submit">Ingresar</button>
 
 </form>
 
 </div>
 </div>
 
-
+</div>
 
 
 <%- include ('partials/__footer');  %> 

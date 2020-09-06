@@ -29,6 +29,9 @@ module.exports = {
       reporte: {
         type: Sequelize.BLOB
       },
+      ticket_firmado: {
+        type: Sequelize.BLOB
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

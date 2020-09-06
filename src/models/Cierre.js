@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     fecha_cierre: DataTypes.TEXT,
     hora_cierre: DataTypes.TEXT,
     reporte: DataTypes.BLOB,
+    ticket_firmado: DataTypes.BLOB,
     pedidoId: DataTypes.INTEGER
   }, {
     sequelize,

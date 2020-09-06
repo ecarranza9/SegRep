@@ -1,6 +1,53 @@
 body{
-  font-family:"Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
-  background-attachment: fixed;
+  font-family:"Raleway","Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+  font-size: 14px;
+  background-color: rgb(248, 248, 248);
+}
+.fondo{
+  width:100%;
+  height: 100%;
+  padding-bottom: 360px;
+  background-repeat: no-repeat;
+  background: url("/img/background.jpg") no-repeat center center fixed;
+  background-size: 100%;
+}
+
+span{
+  font-size: 13px;
+}
+
+#container-login{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+#card-login{
+  width: 50%;
+  height: 50%;
+}
+#card-login .card-header{
+  color: rgba(255,255,255);
+  background-color:  rgba(70, 68, 66, 0.897);
+}
+.form_login{
+  width: 100%;
+  height: 100%;
+}
+
+.container__nav{
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(70, 68, 66, 0.897);
+}
+
+.container__nav .navbar a{
+  color:  rgba(255,255,255);
+}
+
+.container__nav .navbar .collapse .navbar-nav .nav-item .nav-link{
+  color: rgba(255,255,255)
 }
 
 #boton_prioridad{
@@ -8,6 +55,15 @@ body{
   position:relative;
   margin-top: 10px;
   left:1%;
+}
+
+#boton_estado{
+
+  margin: 0 auto;
+  position:relative;
+  margin-top: 10px;
+  left:80%;
+
 }
 
 
@@ -24,4 +80,43 @@ body{
 
 #telefono{
   display: none;
+}
+
+
+.form_login div{
+  padding: 10px;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+#buton_login{
+  background-color: rgba(70, 68, 66, 0.897);
+  border: 1px solid #bbb;
+  width: 100%;
+}
+
+.btn{
+  font-size: 12px;
+}
+
+.table-responsive{
+  display: flex;
+}
+
+/*Estilos - tabla */
+.table-responsive .table thead tr{
+  color: rgba(255,255,255);
+  background-color: rgba(70, 68, 66, 0.897);
+}
+
+.table-responsive .table thead tr th{
+
+  align-items: center;
+  justify-content:center;
+
+}
+
+.table thead{
+  width: 100%;
+  height: 100%;
 }

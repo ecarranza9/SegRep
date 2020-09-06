@@ -44,13 +44,10 @@
             </div>
             <div class="modal-body">
               <ul>
-                  <li>1 - Avería con caracter urgente</li>
-                  <li>2 - Avería con caracter necesario </li>
-                  <li>3 - Entrenamiento</li>
-                  <li>4 - Capacitacion</li>
-                  <li>5 - Otros</li>
-    
-                  
+                <li>1 - Avería con caracter urgente</li>
+                <li>2 - Avería con caracter importante </li>
+                <li>3 - Capacitacion</li>
+                <li>4 - Otros</li>           
               </ul>
             </div>
             <div class="modal-footer">
@@ -63,49 +60,72 @@
        <!-- Button trigger modal -->
 
 <div class="container-fluid">
-
-
-
     <h1 class="text-center">Registro de Averías</h1>
-      <h3 class="text-center">Favor de agregar un pedido de reparación</h3>
-
     <a id="boton" class="btn btn-danger" href="/pedido/nuevo">Agregar Pedido</a>
-    
-   
-  
- 
+</div>
 
+<div class="container-fluid text-right">
+    <h3><span id="fecha_hora"></span></h3>
 
 </div>
 
 
+<button type="button" id="boton_estado" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2">
+  Estado de TICKETS
+</button>
+
+
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel2"> Estado de TICKETS</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal-estado">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+     <!-- Button trigger modal -->
 
 
 
-<div class="container-fluid pt-5">
 
-    <div class="container-fluid">
+
+
+  <div class="container-fluid pt-3">
         <!--Tabla-->
-        <table class="table table-hover">
+        <div class="table-responsive">
+        <table class="table table-hover" id="my_table">
         <thead>
         <tr>
-        <th>N° Ticket</th>
-        <th>Equipo afectado</th>
-        <th>Fecha / Hora apertura</th>
-        <th>Solicitud</th>
-        <th>Ubicación del equipo</th>
-        <th>Solicitante</th>
-        <th>Método de contacto</th>
-        <th>Datos de contacto</th>
-        <th>Indicaciones</th>
-        <th>Prioridad</th>
-        <th>Estado</th> 
-        <th>Acciones</th>             
+        <th scope="col">N° Ticket</th>
+        <th scope="col">Equipo</th>
+        <th scope="col">Fecha / Hora apertura</th>
+        <th scope="col">Solicitud</th>
+        <th scope="col">Ubicación</th>
+        <th scope="col">Solicitante</th>
+        <th scope="col">Método</th>
+        <th scope="col">Datos de contacto</th>
+        <th scope="col">Indicaciones</th>
+        <th scope="col">Prioridad</th>
+        <th scope="col">Estado</th> 
+        <th id="col-12" scope="col">Acciones</th>             
         </tr>
  
         </thead>
-        <tbody>
 
+    
+            <tbody  id="table_ticket">
             <% for(var i = 0; i < pedidos.length; i++){ %>
                 <tr>
                     <td><a class="btn btn-danger mr-2" href="/pedido/<%=pedidos[i].id%>">x</a><%= pedidos[i].id %></td>
@@ -125,11 +145,14 @@
                     <td><%= pedidos[i].prioridad %></td>
                     <td><%= pedidos[i].estado %></td>
                     <%if(pedidos[i].estado == 0){%>
-                    <td><a class="btn btn-success" href="/pedido/asignar/<%= pedidos[i].id%>">Asignar pedido a técnico</a></td>
-                    <td><a class="btn btn-success" href="/pedido/edit/<%= pedidos[i].id%>">Editar pedido</a></td>
+                    <td><a class="btn btn-success" href="/pedido/asignar/<%= pedidos[i].id%>">Asignar pedido</a> 
+                      <a class="btn btn-success mt-2" href="/pedido/edit/<%= pedidos[i].id%>">Editar</a>
+                    </td>
+              
                     <%}else{%>
-                        <td><a class="btn btn-danger" href="/asignacion/<%= pedidos[i].id%>">Detalles de técnico asignado</a></td>
-                        <td><a class="btn btn-danger" href="/pedido/cierre/<%=pedidos[i].id%>">Efectuar cierre</a></td>
+                        <td><a class="btn btn-danger" href="/asignacion/<%= pedidos[i].id%>">Detalles de técnico asignado</a>
+                          <a class="btn btn-danger" href="/pedido/cierre/<%=pedidos[i].id%>">Efectuar cierre</a></td>
+          
                     <%}%>
 
                 </tr>
@@ -140,23 +163,9 @@
 
     
         </tbody>
-        
-        
-        
-        
-        
+  
         </table>
-        
-        </div>
-    
-    </div>
-
-
-
-
-
-
-
+      </div> 
 </div>
     
 

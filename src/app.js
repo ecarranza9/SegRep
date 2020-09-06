@@ -9,15 +9,18 @@ const asignacionRoutes = require('./routes/asignacion.router');
 const cierreRoutes = require('./routes/cierres.router');
 const usersRoutes = require('./routes/users.router')
 const passport = require('passport');
+const moment = require('moment')
 require('./config/passport.js')
 
-//configuracion general server
+//seteo de puertos y motor grafico.
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 
 
 
+
+//configuraciones de middlewares y express
 app.use(express.urlencoded({extended: false}) )
 app.use(express.json())
 app.use(session({ 
@@ -28,14 +31,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash())
 
+
+
+//Variables Globales de acceso.
 app.use(function(req, res,next){
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
     next();
 })
 
-
-
+// routes
 app.use('/pedido', pedidosRoutes);
 app.use('/asignacion', asignacionRoutes);
 app.use('/cierres', cierreRoutes);
@@ -43,9 +49,11 @@ app.use('/tecnico', tecnicoRoutes);
 app.use('/', usersRoutes);
 
 
+
+//Carpeta estatica "public"
 app.use(express.static(path.join(__dirname, 'public')))
 
-
+//activacion de puerto
 app.listen(app.get('port'), () =>{
     console.log("conectado al puerto 3000")
 })

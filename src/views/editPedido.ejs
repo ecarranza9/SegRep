@@ -28,11 +28,11 @@
         </div>
         <div class="modal-body">
           <ul>
-              <li>1 - Avería con caracter urgente</li>
-              <li>2 - Avería con caracter necesario </li>
-              <li>3 - Entrenamiento</li>
-              <li>4 - Capacitacion</li>
-              <li>5 - Otros</li>
+            <li>1 - Avería con caracter urgente</li>
+            <li>2 - Avería con caracter importante </li>
+            <li>3 - Capacitacion</li>
+            <li>4 - Otros</li>
+
 
               
           </ul>
@@ -119,7 +119,7 @@
 
     <div class="form-group">
         <label for=""><strong>Prioridad</strong></label>
-        <input type="number" name="prioridad" min="1" max="5"  value="<%=pedido.prioridad %>">
+        <input type="number" name="prioridad" min="1" max="4"  value="<%=pedido.prioridad %>" required>
     </div>
 
     <div class="form-group">

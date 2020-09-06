@@ -27,27 +27,38 @@
     <div class="row">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header text-center"> <strong> Detalle de asignacion </strong> </div>
+                    <div class="card-header text-center"><img src="/img/logo.png" width="155"></div>
+                    <div class="card-header text-center"> <strong> Detalle del ticket </strong> </div>
                             <div class="card-body">
                                     <th>
-                                        <td><strong>Nro Ticket:</strong> <%=pedido[0].id%></td><br>
+                                        <td><strong>N° Ticket:</strong> <%=pedido[0].id%></td><br>
                                         <td><strong>Interno involucrado:</strong> <%=pedido[0].interno%></td><br>
-                                        <td> <strong>Fecha y hora pedido:</strong> <%=pedido[0].fecha_apertura%> <%=pedido[0].hora_apertura%></td><br>
+                                        <td> <strong>Fecha y hora del pedido:</strong> <%=pedido[0].fecha_apertura%> <%=pedido[0].hora_apertura%></td><br>
                                         <td> <strong>Cliente:</strong> <%=pedido[0].emisor %></td><br>
                                         <td><strong>Solicitud:</strong> <%=pedido[0].solicitud %></td><br>
                                         <td><strong>Indicaciones:</strong> <%=pedido[0].indicaciones %></td><br>
-                                        <td><strong>Tecnico/Tecnicos Asignados:</strong>
+                                        <td><strong>Técnico/s asignado/s:</strong>
                                         <%for(var i = 0; i < filtrado.length; i++){%>
                                         </td><li><%=filtrado[i].nombre%> <%=filtrado[i].apellido%></li>   </td>
                                         <%}%>
-                                        <td><strong>Fecha y hora de Asignacion a Tecnico:</strong> <%=pedidoAsignado[0].fecha_asignacion%> <%=pedidoAsignado[0].hora_asignacion%></td><br>
-                                        <td><strong>Estimacion de ejecución:</strong>   <%=pedidoAsignado[0].fecha_ejecucion%></td><br>
-                                        <td><strong>Ubicacion del equipo:</strong> <%=pedido[0].ubicacion_eqp %></td> <br>
+                                        <td><strong>Fecha y hora de asignacion a técnico/s:</strong> <%=pedidoAsignado[0].fecha_asignacion%> <%=pedidoAsignado[0].hora_asignacion%></td><br>
+                                        <td><strong>Estimación de ejecución:</strong>   <%=pedidoAsignado[0].fecha_ejecucion%></td><br>
+                                        <td><strong>Ubicación del equipo:</strong> <%=pedido[0].ubicacion_eqp %></td> <br>
                                         
 
                                     </th>
-                                    
+                                    <hr>
+                                    <br>
+                                    <br>
+                                
+                                    <td><strong>Firma de autorización del cliente: </strong>_____________________________</td>
+
                             </div>
+
+                          
+
+
+                            
 
             </div>
 

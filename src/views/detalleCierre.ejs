@@ -23,6 +23,7 @@
     <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-header text-center"><img src="/img/logo.png" width="155"></div>
                     <div class="card-header text-center"> <strong> Detalle de Cierre </strong> </div>
                             <div class="card-body">
                                     <th>
@@ -38,19 +39,22 @@
                                         <%for(var i = 0; i < filtrado.length; i++){%>
                                         </td><li><%=filtrado[i].nombre%> <%=filtrado[i].apellido%></li>   </td>
                                         <%}%>
+                                        <td><strong>Resolucion Tecnica:</strong> <%=cierres[0].resolucion%></td> <br>
                                         <td><strong>Tipo de Avería encontrada</strong> <%=cierres[0].tipo_averia%></td><br>
                                         <td><strong>Aprobación del Cliente</strong> <%=cierres[0].aprobacion%></td><br>
                                         <td><strong>Observaciones</strong> <%=cierres[0].observaciones%></td><br>
                                         <td><strong>Reporte tecnico</strong> <br></td>
                                         <% if(cierres[0].reporte == undefined){ %>
-                                        <form action="/cierres/upload/<%=cierres[0].id%>" method="post" enctype="multipart/form-data">
-                                        <input type="file" name="reporte">
-                                        
-                                        <button type="submit">Enviar</button>
+                                        <form action="/cierres/upload/<%=cierres[0].id%>" method="post" enctype="multipart/form-data"> <br>
+                                        <input type="file" name="reporte"> <strong> Reporte</strong> <br>
+                                        <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
+                                        <br>
+                                        <button class="btn btn-danger" type="submit">Enviar</button>
                 
                                         </form>
                                     <%} else{%>
-                                        <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar</a></td>
+                                        <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
+                                        <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
                                     <%}%>
                                        
                                         

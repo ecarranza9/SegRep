@@ -12,7 +12,6 @@ const {Pedido,Pedidotecnico,Tecnico,Cierre} = require('../sequelize');
             
             );
         const asignacion = await Pedidotecnico.findAll();
-    
         res.render('index', {
             user:user,
             pedidos:pedidos,
