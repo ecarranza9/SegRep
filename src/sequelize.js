@@ -6,9 +6,22 @@ const CierreModel = require('./models/Cierre')
 const PedidotecnicoModel = require('./models/Pedidotecnico');
 
 
-const sequelize = new Sequelize({
-    dialect:'postgres'
-})
+
+if (process.env.DATABASE_URL) {
+    // the application is executed on Heroku ... use the postgres database
+    sequelize = new Sequelize(process.env.DATABASE_URL, {
+      dialect:  'postgres',
+      protocol: 'postgres',
+      logging:  true //false
+    });
+  } else {
+    // the application is executed on the local machine
+    sequelize = new Sequelize({
+        dialect:'sqlite',
+        storage: './proyectomil'
+    })
+  }
+
 
 const Pedido = PedidoModel(sequelize,Sequelize);
 const Tecnico = TecnicoModel(sequelize,Sequelize);
