@@ -92,7 +92,7 @@ async function getLogin(req,res){
 
 async function logOut(req,res){
     req.logout();
-    req.flash('success_msg','Cerraste sesión, vuelve a dar tus credenciales para ingresar al sitio.')
+    req.flash('success_msg','Por favor, ingresa tus credenciales para ingresar al sitio.')
     res.redirect('/');
 }
 

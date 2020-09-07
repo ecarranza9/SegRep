@@ -34,8 +34,10 @@
                     <td><%= pedidos[i].indicaciones %></td>
                     <td><%= pedidos[i].prioridad %></td>
                     <td><%= pedidos[i].estado %></td>
-                        <td><a class="btn btn-danger" href="/asignacion/<%= pedidos[i].id%>">Detalles de tecnico asignado</a></td>
-                        <td><a class="btn btn-danger" href="/pedido/cierre/<%=pedidos[i].id%>">Efectuar cierre</a></td>
+                        <td><a class="btn btn-danger" href="/asignacion/<%= pedidos[i].id%>">Detalles de tecnico asignado</a>
+                            <a class="btn btn-danger mt-2" href="/pedido/cierre/<%=pedidos[i].id%>">Efectuar cierre</a>
+                        </td>
+
                    
 
                 </tr>

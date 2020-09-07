@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
      Cierre.belongsTo(models.Pedido,{
-       as:'pedidos'
+       as:'pedidos',
+       foreignKey: 'pedidoId',
      })
     }
   };

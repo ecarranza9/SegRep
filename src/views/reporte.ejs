@@ -1,0 +1,75 @@
+<%- include ('partials/__header');  %> 
+
+<div class="container-fluid pt-3">
+    <!--Tabla-->
+    <div class="table-responsive">
+    <table class="table table-hover" id="my_table">
+    <thead>
+    <tr>
+    <th scope="col">N° Ticket</th>
+    <th scope="col">Equipo</th>
+    <th scope="col">Fecha / Hora apertura</th>
+    <th scope="col">Solicitud</th>
+    <th scope="col">Ubicación</th>
+    <th scope="col">Solicitante</th>
+    <th scope="col">Método</th>
+    <th scope="col">Datos de contacto</th>
+    <th scope="col">Indicaciones</th>
+    <th scope="col">Prioridad</th>
+    <th scope="col">Estado</th> 
+    <th scope="col">Creado en la fecha</th>
+    <th scope="col">Modificado en la fecha</th>      
+    </tr>
+
+    </thead>
+
+
+        <tbody  id="table_ticket">
+        <% for(var i = 0; i < pedidos.length; i++){ %>
+            <tr>
+                <td><%= pedidos[i].id %></td>
+                <td><%= pedidos[i].interno %></td>
+                <td>Fecha:<%= pedidos[i].fecha_apertura%> Hora:<%= pedidos[i].hora_apertura%></td>
+                <td><%= pedidos[i].solicitud %></td>
+                <td><%= pedidos[i].ubicacion_eqp %></td>
+                <td><%= pedidos[i].emisor %></td>
+                <td><%= pedidos[i].metodo_contacto %></td>
+                <td><%if(pedidos[i].tel_solicitante == ""){%>
+                    <%=pedidos[i].mail_solicitante%>
+                    <%} else {%>
+                        <%=pedidos[i].tel_solicitante%>
+                        <%}%>
+                </td>
+                <td><%= pedidos[i].indicaciones %></td>
+                <td><%= pedidos[i].prioridad %></td>
+                <td><%if(pedidos[i].estado == 0){%>
+                  <strong> SIN ASIGNAR</strong> 
+               <% } else if(pedidos[i].estado == 1) {%>
+                <strong>ASIGNADO</strong> 
+              <% } else if(pedidos[i].estado == 2) {%>
+                <strong> CERRADO</strong> 
+              <%}%>
+            </td>
+                <td><%= pedidos[i].createdAt %></td>
+                <td><%= pedidos[i].updatedAt %></td>
+
+            </tr>
+
+
+
+            <%}%>
+
+
+    </tbody>
+
+    </table>
+  </div> 
+</div>
+
+
+
+
+
+
+
+<%- include ('partials/__footer');  %> 

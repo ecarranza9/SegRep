@@ -1,5 +1,20 @@
 const {Pedido,Pedidotecnico,Tecnico,Cierre} = require('../sequelize');
 
+async function getAllPedidos(req,res){
+    const pedidos = await Pedido.findAll()
+    const pedidosAsignados = await Pedidotecnico.findAll()
+    const cierres = await Cierre.findAll()
+
+    res.render('reporte',{
+        pedidos:pedidos,
+        pedidosAsignados:pedidosAsignados,
+        cierres:cierres
+    })
+
+}
+
+
+
 //mostrar pedidos
     async function getPedidos(req,res){
         const user = req.user
@@ -202,5 +217,6 @@ module.exports = {
     getasignarPedido,
     asignarPedido,
     getcerrarPedido,
-    cerrarPedido
+    cerrarPedido,
+    getAllPedidos
 }
