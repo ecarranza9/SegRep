@@ -8,7 +8,7 @@ const tecnicoRoutes = require('./routes/tecnicos.router');
 const asignacionRoutes = require('./routes/asignacion.router');
 const cierreRoutes = require('./routes/cierres.router');
 const usersRoutes = require('./routes/users.router');
-const reportesRoutes = require('./routes/reportes.router');
+const adminRoutes = require('./routes/admin.router');
 const passport = require('passport');
 const moment = require('moment')
 require('./config/passport.js')
@@ -46,7 +46,7 @@ app.use('/pedido', pedidosRoutes);
 app.use('/asignacion', asignacionRoutes);
 app.use('/cierres', cierreRoutes);
 app.use('/tecnico', tecnicoRoutes);
-app.use('/reportes', reportesRoutes);
+app.use('/admin', adminRoutes);
 app.use('/', usersRoutes);
 
 
