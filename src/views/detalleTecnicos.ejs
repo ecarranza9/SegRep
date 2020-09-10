@@ -4,6 +4,7 @@
 <div class="container pt-5">
     <%const arrtecnico = []%>
     <% var tecnico_pedido = pedidoAsignado[0].tecnicoId %>
+    <%console.log(pedidoAsignado[0])%>
     <%console.log(typeof(tecnico_pedido))%>
     <% if(typeof(tecnico_pedido) != 'number'){%>
     <%const arrtecnico = tecnico_pedido.split(",")%>
