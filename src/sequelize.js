@@ -32,6 +32,7 @@ const Usuario = UsuarioModel(sequelize,Sequelize);
 
 sequelize.sync({force:true})
 .then(()=>{
+    Pedidotecnico.create(1,1,"15/08/2020","15:30","20/08/2020","","")
     console.log("Tablas creadas")
 })
 
