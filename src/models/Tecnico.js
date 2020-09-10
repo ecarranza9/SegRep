@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       Tecnico.associate = function(models){
         Pedido.belongsToMany(models.Pedido,{
             through:'pedidotecnicos',
+            foreignKey: 'pedidoId'
         })
     }
     
