@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       
       Tecnico.associate = function(models){
         Pedido.belongsToMany(models.Pedido,{
-            through:'pedidotecnicos',
+            through:'pedidotecnico',
+            tableName:'pedidotecnicos',
             foreignKey: 'pedidoId'
         })
     }
