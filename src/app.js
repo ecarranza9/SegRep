@@ -53,6 +53,7 @@ app.use('/', usersRoutes);
 
 //Carpeta estatica "public"
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'uploads')))
 
 //activacion de puerto
 app.listen(process.env.PORT || 3000, () =>{
