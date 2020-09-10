@@ -13,12 +13,14 @@ async function cierreUploadFile(req,res){
 
     if(req.files){
         var filePath = req.files.reporte.path;
+        console.log(filePath)
         var fileSplit = filePath.split('\\uploads\\');
         var fileName = fileSplit[1];
+        console.log(fileName)
         var filePath2 = req.files.ticket_firmado.path;
         var fileSplit2 = filePath2.split('\\uploads\\');
         var fileName2 = fileSplit2[1];
-
+        console.log(fileName2)
 
         Cierre.findByPk(cierreId)
         .then((cierre=>{
