@@ -9,10 +9,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       pedidoId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references:{
+          model:{
+            tableName: 'pedidos'
+          },
+          key: 'id'
+        }
       },
       tecnicoId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references:{
+          model:{
+            tableName: 'tecnicos'
+          },
+          key: 'id'
+        }
       },
       fecha_asignacion: {
         type: Sequelize.TEXT
