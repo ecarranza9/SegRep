@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     pedidoId: DataTypes.INTEGER,
     tecnicoId: DataTypes.INTEGER,
     fecha_asignacion: DataTypes.TEXT,
-    hora_asignacion: DataTypes.INTEGER,
+    hora_asignacion: DataTypes.TEXT,
     fecha_ejecucion: DataTypes.TEXT
   }, {
     sequelize,

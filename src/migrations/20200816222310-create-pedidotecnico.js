@@ -30,7 +30,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       hora_asignacion: {
-        type: Sequelize.INTEGER
+        type: Sequelize.TEXT
       },
       fecha_ejecucion: {
         type: Sequelize.TEXT
