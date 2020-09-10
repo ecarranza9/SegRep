@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       
       Tecnico.associate = function(models){
-        Pedido.belongsToMany(models.Pedido,{
+        Tecnico.belongsToMany(models.Pedido,{
             through:'pedidotecnicos',
         })
     }
