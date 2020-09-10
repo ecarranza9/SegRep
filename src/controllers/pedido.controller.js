@@ -141,7 +141,7 @@ async function asignarPedido(req,res){
 
     const {tecnicoId, fecha_asignacion,hora_asignacion,fecha_ejecucion} = req.body
 try{
-   let pedidoAsignado = Pedidotecnico.create({
+   let pedidoAsignado = await Pedidotecnico.create({
             pedidoId,
             tecnicoId,
             fecha_asignacion,
