@@ -6,12 +6,12 @@
     <% var tecnico_pedido = pedidoAsignado[0].tecnicoId%>
     <%console.log(pedidoAsignado[0])%>
     <%console.log(typeof(tecnico_pedido))%>
-    <%const arrtecnico = tecnico_pedido %>
+    <%const arrtecnico = tecnico_pedido.split(',') %>
     <%console.log(arrtecnico)%>
     <%var filtrado = tecnicos.filter(function(e,index) {%>
         <%console.log("ESTOS SON LOS USUARIOS:" + e.id)%>
         <%console.log("ARRTECNICO:" + arrtecnico[index])%>
-        <%return e.id = arrtecnico[index]%>
+        <%return arrtecnico == e.id%>
           <%})%>
           <%console.log(filtrado);%>
 
