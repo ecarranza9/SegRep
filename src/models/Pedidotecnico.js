@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Pedidotecnico.init({
     pedidoId: DataTypes.INTEGER,
-    tecnicoId: DataTypes.TEXT,
+    tecnicoId: DataTypes.ARRAY(DataTypes.TEXT),
     fecha_asignacion: DataTypes.TEXT,
     hora_asignacion: DataTypes.TEXT,
     fecha_ejecucion: DataTypes.TEXT

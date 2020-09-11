@@ -29,7 +29,6 @@ const Pedidotecnico = PedidotecnicoModel(sequelize,Sequelize);
 const Cierre = CierreModel(sequelize,Sequelize);
 const Usuario = UsuarioModel(sequelize,Sequelize);
 
-
 sequelize.sync({force:true})
 .then(()=>{
     console.log("Tablas creadas")
