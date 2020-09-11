@@ -11,7 +11,7 @@
     <%var filtrado = tecnicos.filter(function(e,index) {%>
         <%console.log("ESTOS SON LOS USUARIOS:" + e.id)%>
         <%console.log("ARRTECNICO:" + arrtecnico[index])%>
-        <%return arrtecnico == e.id%>
+        <%return arrtecnico[index] == e.id%>
           <%})%>
           <%console.log(filtrado);%>
 
