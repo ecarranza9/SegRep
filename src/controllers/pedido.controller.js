@@ -141,9 +141,10 @@ async function asignarPedido(req,res){
 
     var {tecnicoId, fecha_asignacion,hora_asignacion,fecha_ejecucion} = req.body
         if(req.body.tecnicoId.length === 1){
-             tecnicoId = req.body.tecnicoId.split('')
-        }
-        console.log(tecnicoId)
+             tecnicoId = req.body.tecnicoId.split()
+             console.log(tecnicoId)
+            }
+        console.log(typeof(tecnicoId))
 try{
    let pedidoAsignado = await Pedidotecnico.create({
             pedidoId,

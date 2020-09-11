@@ -6,8 +6,8 @@
     <%console.log(pedidoAsignado[0])%>
     <% var tecnico_pedido = pedidoAsignado[0].tecnicoId%>
     <%console.log(pedidoAsignado[0])%>
-    <%console.log(tecnico_pedido)%>
-    <% if(typeof(tecnico_pedido) != 'number'){%>
+    <%console.log(typeof(tecnico_pedido))%>
+    <% if(typeof(tecnico_pedido) != 'string'){%>
     <%const arrtecnico = tecnico_pedido %>
     <%console.log(arrtecnico)%>
     <%var filtrado = tecnicos.filter(function(e,key) {%>
@@ -15,7 +15,7 @@
           <%})%>
           <%console.log(filtrado);%>
 <%} else {%>
-<%const arrtecnico = tecnico_pedido.join(''); %>
+<%const arrtecnico = tecnico_pedido.split(); %>
 <%console.log(arrtecnico)%>
 <%var filtrado = tecnicos.filter(function(e,key) {%>
     <%return e.id == arrtecnico%>
