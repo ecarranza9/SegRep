@@ -7,20 +7,14 @@
     <% var tecnico_pedido = pedidoAsignado[0].tecnicoId%>
     <%console.log(pedidoAsignado[0])%>
     <%console.log(typeof(tecnico_pedido))%>
-    <% if(typeof(tecnico_pedido) === 'object'){%>
     <%const arrtecnico = tecnico_pedido %>
     <%console.log(arrtecnico)%>
     <%var filtrado = tecnicos.filter(function(e,key) {%>
-        <%return e.id = arrtecnico[key];%>
+        <%console.log(e.id)%>
+        <%console.log(arrtecnico[key])%>
+        <%return e.id = arrtecnico%>
           <%})%>
           <%console.log(filtrado);%>
-<%} else {%>
-<%const arrtecnico = tecnico_pedido.split(); %>
-<%console.log(arrtecnico)%>
-<%var filtrado = tecnicos.filter(function(e,key) {%>
-    <%return e.id == arrtecnico[key]%>
-      <%})%>
-      <%}%>
 
 
 
