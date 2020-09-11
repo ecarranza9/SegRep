@@ -8,10 +8,10 @@
     <%console.log(typeof(tecnico_pedido))%>
     <%const arrtecnico = tecnico_pedido %>
     <%console.log(arrtecnico)%>
-    <%var filtrado = tecnicos.filter(function(e,key) {%>
-        <%console.log(e.id)%>
-        <%console.log(arrtecnico[key])%>
-        <%return e.id = arrtecnico%>
+    <%var filtrado = tecnicos.filter(function(e,index) {%>
+        <%console.log("ESTOS SON LOS USUARIOS:" + e.id)%>
+        <%console.log("ARRTECNICO": + arrtecnico[index])%>
+        <%return e.id = arrtecnico[index]%>
           <%})%>
           <%console.log(filtrado);%>
 
