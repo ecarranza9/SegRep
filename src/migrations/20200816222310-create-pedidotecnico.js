@@ -18,7 +18,7 @@ module.exports = {
         }
       },
       tecnicoId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
         references:{
           model:{
             tableName: 'tecnicos'
