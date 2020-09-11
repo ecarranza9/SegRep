@@ -139,7 +139,11 @@ async function asignarPedido(req,res){
     const pedidoId = req.params.id
     const pedido = await Pedido.findByPk(pedidoId);
 
-    const {tecnicoId, fecha_asignacion,hora_asignacion,fecha_ejecucion} = req.body
+    var {tecnicoId, fecha_asignacion,hora_asignacion,fecha_ejecucion} = req.body
+        if(req.body.tecnicoId.length === 1){
+             tecnicoId = req.body.tecnicoId.split('')
+        }
+        console.log(tecnicoId)
 try{
    let pedidoAsignado = await Pedidotecnico.create({
             pedidoId,

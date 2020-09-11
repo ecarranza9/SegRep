@@ -15,7 +15,7 @@
           <%})%>
           <%console.log(filtrado);%>
 <%} else {%>
-<%const arrtecnico = tecnico_pedido %>
+<%const arrtecnico = tecnico_pedido.join(''); %>
 <%console.log(arrtecnico)%>
 <%var filtrado = tecnicos.filter(function(e,key) {%>
     <%return e.id == arrtecnico%>
