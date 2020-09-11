@@ -8,7 +8,6 @@
     <%console.log(pedidoAsignado[0])%>
     <%console.log(typeof(tecnico_pedido))%>
     <% if(typeof(tecnico_pedido) != 'number'){%>
-    <%const arrtecnico = tecnico_pedido.split(",")%>
     <%var filtrado = tecnicos.filter(function(e,key) {%>
         <%return e.id = arrtecnico[key];%>
           <%})%>
