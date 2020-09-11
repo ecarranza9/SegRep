@@ -6,15 +6,29 @@
     <% var tecnico_pedido = pedidoAsignado[0].tecnicoId%>
     <%console.log(pedidoAsignado[0])%>
     <%console.log(typeof(tecnico_pedido))%>
-    <%const arrtecnico = tecnico_pedido%>
+    <%const arrtecnico = tecnico_pedido.split(',')%>
     <%console.log(arrtecnico)%>
-    <%var filtrado = tecnicos.filter(function(e,index) {%>
-        <%console.log("ESTOS SON LOS USUARIOS:" + e.id)%>
-        <%console.log("ARRTECNICO:" + arrtecnico[index])%>
-        <%return arrtecnico[index] == e.id%>
-          <%})%>
-          <%console.log(filtrado);%>
-
+    <%if(arrtecnico.length == 1){%>
+    <%var filtrado = []%>
+    <%tecnicos.forEach(function(tecnico,index){%>
+        <%console.log(arrtecnico)%>
+       <%if(tecnico.id == arrtecnico){%>
+        <%filtrado.push(tecnico);%>
+    <%}%>
+   <% })%>
+<%} else {%>
+<%var filtrado = []%>
+  <%arrtecnico.filter(e=>{%>
+         <%console.log(e)%>
+        <%var res = tecnicos.find((tecnico)=>{%>
+         <%if(tecnico.id == e){%>
+            <%return tecnico%>
+            <%}%>
+         <%});%> 
+         <%filtrado.push(res)%>
+<%})%>
+         
+<%}%>
 
 
 
