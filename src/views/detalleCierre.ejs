@@ -59,13 +59,15 @@
                                         <form action="/cierres/upload/<%=cierres[0].id%>" method="post" enctype="multipart/form-data"> <br>
                                         <input type="file" name="reporte"> <strong> Reporte</strong> <br>
                                        
+                                    <%}else{%>
+                                        <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
                                     <%} if(cierres[0].ticket_firmado == undefined){%>
                                         <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
                                         <br>
                                         <button class="btn btn-danger" type="submit">Enviar</button>
                                     </form>
                                    <% } else{%>
-                                        <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
+                                       
                                         <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
                                     <%}%>
                                        
