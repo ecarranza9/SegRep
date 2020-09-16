@@ -18,7 +18,6 @@
         <th>Prioridad</th>
         <th>Estado</th>
         <th>Reporte</th>
-        <th>Ticket-Firmado</th> 
         <th>Acciones</th>             
         </tr>
  
@@ -44,14 +43,8 @@
                         <%}%>
                     </td>
 
-                    <td><%if(cierres[i].ticket_firmado == null){%>
-                        NO
-                <%} else {%>
-                        SI
-                    <%}%>
-                </td>
                 
-                    </td>
+                    
                         <td><a class="btn btn-primary" href="/cierres/detalle/<%=pedidos[i].id %>">Detalles de cierre</a></td>
                 </tr>
 
