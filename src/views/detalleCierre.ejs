@@ -54,17 +54,16 @@
                                         <td><strong>Tipo de Avería encontrada</strong> <%=cierres[0].tipo_averia%></td><br>
                                         <td><strong>Aprobación del Cliente</strong> <%=cierres[0].aprobacion%></td><br>
                                         <td><strong>Observaciones</strong> <%=cierres[0].observaciones%></td><br>
-                                        <td><strong>Reporte tecnico</strong> <br></td>
-                                        <%console.log(cierres[0].reporte)%>
-                                        <%console.log(cierres[0].ticket_firmado)%>
-                                        <% if(cierres[0].reporte && cierres[0].ticket_firmado == null){ %>
+                                        <td><strong>Reporte tecnico</strong> <br></td> 
                                         <form action="/cierres/upload/<%=cierres[0].id%>" method="post" enctype="multipart/form-data"> <br>
+                                            <% if(cierres[0].reporte == null) { %>
                                         <input type="file" name="reporte"> <strong> Reporte</strong> <br>
+                                        <%} if(cierres[0].ticket_firmado == null){%>
                                         <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
                                         <br>
                                         <button class="btn btn-danger" type="submit">Enviar</button>
                                         </form>
-                                    <%} else{%>
+                                        <%} else{%>
                                         <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
                                         <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
                                     <%}%>
