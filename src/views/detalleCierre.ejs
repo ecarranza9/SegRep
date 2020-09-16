@@ -64,8 +64,8 @@
                                     <%} if(cierres[0].ticket_firmado == undefined){%>
                                         <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
                                         <br>
-                                        <button class="btn btn-danger" type="submit">Enviar</button>
                                     </form>
+                                    <button class="btn btn-danger" type="submit">Enviar</button>
                                    <% } else{%>
                                        
                                         <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
