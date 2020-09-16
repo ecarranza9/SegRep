@@ -59,24 +59,25 @@
                                         <%if (cierre[0].reporte && cierre[0].ticket_firmado == undefined){%>
                                             <input type="file" name="reporte"> <strong> Reporte</strong> <br>
                                             <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
-                                        <%}%>
-                                        <%if(cierres[0].reporte == undefined && cierres[0].ticket_firmado !== undefined){ %>
+                                        <%}if(cierres[0].reporte == undefined && cierres[0].ticket_firmado !== undefined){%>
                                         <input type="file" name="reporte"> <strong> Reporte</strong> <br>
-                                        <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
                                         <br>
                                         <%}if(cierres[0].reporte !== undefined && cierres[0].ticket_firmado == undefined){ %>
                                             <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
-                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
                                             <br> 
-                                        <%} else if(cierre[0].reporte && cierre[0].ticket_firmado !== undefined) {%>
-                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
-                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
-                                        <%}%>
-                                             
+                                        <%}%>  
                                         <button class="btn btn-danger" type="submit">Enviar</button>
                                         </form>
-    
-                                       
+                                        <%if(cierres[0].reporte == undefined && cierres[0].ticket_firmado !== undefined){ %>
+                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
+                                            <br>
+                                            <%}if(cierres[0].reporte !== undefined && cierres[0].ticket_firmado == undefined){ %>
+                                                <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
+                                                <br> 
+                                            <%}else {%>
+                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
+                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
+                                            <%}%>
                                         
 
                                     </th>
