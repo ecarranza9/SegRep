@@ -18,6 +18,7 @@
         <th>Prioridad</th>
         <th>Estado</th>
         <th>Reporte</th>
+        <th>Ticket-Firmado</th> 
         <th>Acciones</th>             
         </tr>
  
@@ -36,15 +37,31 @@
                     <td><%= pedidos[i].indicaciones %></td>
                     <td><%= pedidos[i].prioridad %></td>
                     <td><%= pedidos[i].estado %></td>
-                    <td><%if(cierres[i].reporte == null){%>
+                    <td><%if(cierres[i].reporte == undefined) {%>
                             NO
-                    <%} else {%>
+                    <%} else{%>
+                    
+                    <%if(cierres[i].reporte.length == 24){%>
+                            NO
+                    <%}if(cierres[i].reporte.length > 24){%>
                             SI
                         <%}%>
+                    <%}%>
                     </td>
 
+                    <td><%if(cierres[i].ticket_firmado == undefined) {%>
+                        NO
+                <%} else {%>
+               <% if(cierres[i].ticket_firmado.length == 24){%>
+                        NO
+                <%}if(cierres[i].ticket_firmado.length > 24){%>
+                        SI
+                    <%}%>
+
+                <%}%>
+                </td>
                 
-                    
+                    </td>
                         <td><a class="btn btn-primary" href="/cierres/detalle/<%=pedidos[i].id %>">Detalles de cierre</a></td>
                 </tr>
 

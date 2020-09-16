@@ -55,18 +55,38 @@
                                         <td><strong>Aprobación del Cliente</strong> <%=cierres[0].aprobacion%></td><br>
                                         <td><strong>Observaciones</strong> <%=cierres[0].observaciones%></td><br>
                                         <td><strong>Reporte tecnico</strong> <br></td>
-                                        <% if(cierres[0].reporte == undefined){ %>
+                                        
                                         <form action="/cierres/upload/<%=cierres[0].id%>" method="post" enctype="multipart/form-data"> <br>
-                                        <input type="file" name="reporte"> <strong> Reporte</strong> <br>
-                                        <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
-                                        <br>
-                                        <button class="btn btn-danger" type="submit">Enviar</button>
+
+                                            <%if(cierres[0].reporte == undefined){%>
+                                                <input type="file" name="reporte"> <strong> Reporte</strong> <br>
+                                                <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
+                                                <button class="btn btn-danger" type="submit">Enviar</button>
+                                           <% }else{%>
+                                      
+                                            <%if(cierres[0].reporte.length > 24 && cierres[0].ticket_firmado.length == 24){ %>
+                                       
+                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
+                                            <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
+                                            <button class="btn btn-danger" type="submit">Enviar</button>
+                                            <br>
+                                            
                 
-                                        </form>
-                                    <%} else{%>
-                                        <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
-                                        <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
-                                    <%}%>
+                                        
+                                    <%}if(cierres[0].reporte.length == 24 && cierres[0].ticket_firmado.length > 24){%>
+                                        <input type="file" name="reporte"> <strong> Reporte</strong> <br>
+                                        <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td><br>
+                                        <button class="btn btn-danger" type="submit">Enviar</button>
+                                        <%}if (cierres[0].reporte.length && cierres[0].ticket_firmado.length > 24){%>
+                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
+                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
+                                        <%}%>
+
+                                           <%}%>
+                                        
+                                    </form>
+                                   
+                                    
                                        
                                         
 
