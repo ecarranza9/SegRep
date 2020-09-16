@@ -48,7 +48,7 @@ async function cierreUploadFile(req,res){
 async function cierreDownReporte(req,res){
     var file = req.params.reporte
     var path_file = './src/uploads/' + file;
-    fs.exists(path_file, (exists)=>{
+    fs.access(path_file, (exists)=>{
         if(exists){
             return res.sendFile(path.resolve(path_file))
         }else{
