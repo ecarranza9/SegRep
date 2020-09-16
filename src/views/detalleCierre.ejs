@@ -56,23 +56,28 @@
                                         <td><strong>Observaciones</strong> <%=cierres[0].observaciones%></td><br>
                                         <td><strong>Reporte tecnico</strong> <br></td>
                                         <form action="/cierres/upload/<%=cierres[0].id%>" method="post" enctype="multipart/form-data"> <br>
-                                        <% if(cierres[0].reporte == null && cierres[0].ticket_firmado != null){ %>
-                                            <input type="file" name="reporte"> <strong> Reporte</strong> <br>
-                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td> <br>  
-                                         <%}else if(cierres[0].ticket_firmado == null && cierres[0].reporte != null){%>
-                                            <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
-                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td> <br>
-                                            <br>
-                                    <%}else if(cierres[0].ticket_firmado && cierres[0].reporte == null){%>
+                                        <%if (cierre[0].reporte && cierre[0].ticket_firmado == undefined){%>
                                             <input type="file" name="reporte"> <strong> Reporte</strong> <br>
                                             <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
-                                    <%}else{%>
+                                        <%}%>
+                                        <%if(cierres[0].reporte == undefined && cierres[0].ticket_firmado !== undefined){ %>
+                                        <input type="file" name="reporte"> <strong> Reporte</strong> <br>
+                                        <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
+                                        <br>
+                                        <%}if(cierres[0].reporte !== undefined && cierres[0].ticket_firmado == undefined){ %>
+                                            <input type="file" name="ticket_firmado"> <strong> Ticket - Firmado </strong><br>
+                                            <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
+                                            <br> 
+                                        <%} else if(cierre[0].reporte && cierre[0].ticket_firmado !== undefined) {%>
                                             <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].reporte%>">Descargar Reporte</a></td>
                                             <td><a class="btn btn-danger" download href="../upload/<%=cierres[0].ticket_firmado%>">Descargar Ticket Firmado</a></td>
                                         <%}%>
-                                        <br>
+                                             
                                         <button class="btn btn-danger" type="submit">Enviar</button>
-                                    </form>
+                                        </form>
+    
+                                       
+                                        
 
                                     </th>
                                     
