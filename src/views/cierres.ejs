@@ -27,7 +27,7 @@
 
             <% for(var i = 0; i < pedidos.length; i++){ %>
                 <tr>
-                    <td><%= cierres[i].pedidoId %> <a href="/pedido/<%=cierres[i].pedidoId%>">Borrar pedido</a></td>
+                    <td><%= pedidos[i].id %> <a href="/pedido/<%=pedidos[i].id%>">Borrar pedido</a></td>
                     <td><%= pedidos[i].interno %></td>
                     <td>Fecha:<%= pedidos[i].fecha_apertura%> Hora:<%= pedidos[i].hora_apertura%></td>
                     <td><%= pedidos[i].solicitud %></td>
