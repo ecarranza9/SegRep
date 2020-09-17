@@ -20,14 +20,14 @@ async function cierreUploadFile(req,res){
         console.log(fileSplit)
         var fileName = fileSplit[1];
         console.log(fileName)
-    }
+    }   if(req.files.ticket_firmado){
         var filePath2 = req.files.ticket_firmado.path;
         console.log(filePath2)
         var fileSplit2 = filePath2.split('/uploads/');
         console.log(fileSplit2)
         var fileName2 = fileSplit2[1];
         console.log(fileName2)
-
+    }
         Cierre.findByPk(cierreId)
         .then((cierre=>{
             console.log(cierre.reporte)

@@ -39,29 +39,27 @@
                     <td><%= pedidos[i].estado %></td>
                     <td><%if(cierres[i].reporte == undefined) {%>
                             NO
-                    <%} else{%>
+                            <td>NO</td>
+                            
                     
-                    <%if(cierres[i].reporte.length == 24){%>
-                            NO
-                    <%}if(cierres[i].reporte.length > 24){%>
-                            SI
-                        <%}%>
-                    <%}%>
-                    </td>
-
-                    <td><%if(cierres[i].reporte == undefined) {%>
-                        NO
-                <%} else {%>
-               <% if(cierres[i].ticket_firmado.length == 24){%>
-                        NO
-                <%}if(cierres[i].ticket_firmado.length > 24){%>
+                    <%}else{%>
+                        
+                      <%if(cierres[i].reporte.length > 24 && cierres[i].ticket_firmado.length == 24){%>
                         SI
-                    <%}%>
+                        <td>NO</td>
+                        <%} if(cierres[i].reporte.length == 24 && cierres[i].ticket_firmado.length > 24){%>
+                                NO
+                                <td>SI</td>
+                            <%}else if(cierres[i].reporte.length && cierres[i].ticket_firmado.length > 24){%>
+                                    SI
+                                    <td>SI</td>
 
-                <%}%>
-                </td>
-                
-                    </td>
+                                <%}%>
+
+                                <%}%>
+        
+                            </td>
+                   
                         <td><a class="btn btn-primary" href="/cierres/detalle/<%=pedidos[i].id %>">Detalles de cierre</a></td>
                 </tr>
 
