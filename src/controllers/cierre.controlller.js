@@ -64,7 +64,11 @@ async function cierreDownReporte(req,res){
 async function getCierre(req,res){
     const user = req.user
     const pedidos = await Pedido.findAll({where:{estado:2}});
-    const cierres = await Cierre.findAll({order:[['pedidoId','DESC']]});
+    const cierres = await Cierre.findAll({
+       
+        order:[['pedidoId','ASC']]
+    
+    });
     res.render('cierres',{
         pedidos:pedidos,
         user:user,
