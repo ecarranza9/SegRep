@@ -12,7 +12,6 @@ async function cierreUploadFile(req,res){
     var cierreId = req.params.id;
 
     if(req.files){
-        console.log(req.files)
         if(req.files.reporte){
         var filePath = req.files.reporte.path;
         console.log(filePath)
@@ -48,17 +47,17 @@ async function cierreUploadFile(req,res){
 }
 
 async function cierreDownReporte(req,res){
-    var file = req.params.reporte
+    var file = req.params.reporte;
+    var file2 = req.params.ticket_firmado;
+    console.log(file2)
     var path_file = './src/uploads/' + file;
-    fs.exists(path_file, (exists)=>{
-        if(exists){
+    if(fs.existsSync(path_file)){
             return res.sendFile(path.resolve(path_file))
         }else{
             return res.status(200).send({
                 message:'No existe la imagen'
             })
-        }
-    })
+        } 
 }
 
 async function getCierre(req,res){
