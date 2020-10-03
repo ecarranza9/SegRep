@@ -10,8 +10,10 @@ const cierreRoutes = require('./routes/cierres.router');
 const usersRoutes = require('./routes/users.router');
 const adminRoutes = require('./routes/admin.router');
 const passport = require('passport');
-const moment = require('moment')
-require('./config/passport.js')
+const moment = require('moment');
+require('./config/passport.js');
+
+const port = process.env.PORT || 3000;
 
 //seteo de puertos y motor grafico.
 app.set('views', path.join(__dirname,'views'));
@@ -57,5 +59,5 @@ app.use(express.static(path.join(__dirname, 'uploads')))
 
 //activacion de puerto
 app.listen(process.env.PORT || 3000, () =>{
-    console.log("conectado al puerto 3000")
+    console.log(`Conectado al puerto: ${port}`)
 })
