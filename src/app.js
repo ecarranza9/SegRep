@@ -58,6 +58,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'uploads')))
 
 //activacion de puerto
-app.listen(process.env.PORT || 3000, () =>{
+app.listen(port, () =>{
     console.log(`Conectado al puerto: ${port}`)
 })
