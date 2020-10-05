@@ -1,15 +1,4 @@
 'use strict'
-
-var Loading=(loadingDelayHidden=0)=>{let loading=null;const myLoadingDelayHidden=loadingDelayHidden;let imgs=[];let lenImgs=0;let counterImgsLoading=0;function incrementCounterImgs(){counterImgsLoading+=1;if(counterImgsLoading===lenImgs){hideLoading()}}function hideLoading(){if(loading!==null){loading.classList.remove('show');setTimeout(function(){loading.remove()},myLoadingDelayHidden)}}function init(){document.addEventListener('DOMContentLoaded',function(){loading=document.querySelector('.loading');imgs=Array.from(document.images);lenImgs=imgs.length;if(imgs.length===0){hideLoading()}else{imgs.forEach(function(img){img.addEventListener('load',incrementCounterImgs,false)})}})}return{'init':init}}
-
-Loading(1000).init();
-
-
-setTimeout(function() {
-
-	$('#error').fadeOut(2000);
-
-   },3000);
 var mail = document.getElementById('mail')
 var telefono = document.getElementById('telefono');
 var mail_input = document.getElementById('mail_input')
@@ -19,6 +8,30 @@ var form_pedido = document.getElementById('form_pedido');
 var fecha_hora = document.getElementById('fecha_hora');
 var tickets = document.getElementById('table_ticket');
 var modal_estado = document.getElementById('modal-estado');
+var btnTicket = document.querySelector('#boton-estado')
+
+mostrarModal("http://localhost:3000/pedido")
+function mostrarModal(location){
+   console.log(location)
+   console.log(window.location.href)
+   if(window.location.href.toString() == location){
+      $("#exampleModal2").modal("show");
+   }
+}
+
+var Loading=(loadingDelayHidden=0)=>{let loading=null;const myLoadingDelayHidden=loadingDelayHidden;let imgs=[];let lenImgs=0;let counterImgsLoading=0;function incrementCounterImgs(){counterImgsLoading+=1;if(counterImgsLoading===lenImgs){hideLoading()}}function hideLoading(){if(loading!==null){loading.classList.remove('show');setTimeout(function(){loading.remove()},myLoadingDelayHidden)}}function init(){document.addEventListener('DOMContentLoaded',function(){loading=document.querySelector('.loading');imgs=Array.from(document.images);lenImgs=imgs.length;if(imgs.length===0){hideLoading()}else{imgs.forEach(function(img){img.addEventListener('load',incrementCounterImgs,false)})}})}return{'init':init}}
+
+Loading(800).init();
+
+
+setTimeout(function() {
+
+$('#error').fadeOut(2000);
+
+},3000);
+
+
+
 
 function mostrar(id){
 
@@ -121,14 +134,14 @@ for(let item in finalObject){
 
 let datos = JSON.parse(JSON.stringify(objetoaMostrar))
 console.log(datos)
-modal_estado.innerHTML = ''
+modal_estado.innerHTML = 'No hay novedades'
 for(let item of objetoaMostrar){
 if(item.Estado === false){
    item.Estado = "La averia esta en tiempo y forma"
 } else{
    item.Estado = "OJO, ya han pasado 48hs"
 }
-modal_estado.innerHTML += `
+modal_estado.innerHTML = `
 <ul>
       <li> <strong>TICKET:</strong> ${item.Ticket}, <strong> HORAS DESDE EL PEDIDO:</strong> ${item.Dias}HS., <strong> ESTADO:</strong> ${item.Estado}</li>
      

@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": null,
+    "username": "postgres",
     "password": null,
     "database": "proyectomil",
     "host": "127.0.0.1",
-    "dialect": "sqlite",
-    "storage": "../proyectomil"
+    "dialect": "postgres"
+ 
   },
   "test": {
     "username": "root",

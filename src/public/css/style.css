@@ -129,12 +129,28 @@ span{
   display: none;
 }
 
+h1{
+  font-size: 35px;
+}
 
 .form_login div{
-  padding: 20px;
+  padding: 15px;
   margin-right: 4px;
   margin-left: 4px;
 }
+
+.content-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+#inicio-img{
+  width: 150px;
+  height: 150px;
+}
+
 
 #buton_login{
   background-color: rgba(70, 68, 66, 0.897);
