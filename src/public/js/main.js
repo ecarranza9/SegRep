@@ -20,7 +20,7 @@ $('#error').fadeOut(2000);
 window.onload = function () {
    setTimeout(function () {
    $(".jm-loadingpage").fadeOut("slow");;
-}, 3000)
+}, 1500)
    mueveReloj()
 }
 
