@@ -14,7 +14,6 @@ const moment = require('moment');
 require('dotenv').config()
 require('./config/passport.js');
 
-const port = process.env.PORT || 3000;
 
 //seteo de puertos y motor grafico.
 app.set('views', path.join(__dirname,'views'));
@@ -59,6 +58,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'uploads')))
 
 //activacion de puerto
-app.listen(port, () =>{
-    console.log(`Conectado al puerto: ${port}`)
+app.listen(process.env.PORT, () =>{
+    console.log(`Conectado al puerto: ${process.env.PORT}`)
 })

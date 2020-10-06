@@ -19,8 +19,9 @@ var fecha_hora = document.getElementById('fecha_hora');
 var tickets = document.getElementById('table_ticket');
 var modal_estado = document.getElementById('modal-estado');
 var btnTicket = document.querySelector('#boton-estado')
-
-mostrarModal("http://localhost:3000/pedido")
+const host = window.location.host
+console.log(host)
+mostrarModal(`http://${host}/pedido`)
 function mostrarModal(location){
    console.log(location)
    console.log(window.location.href)
