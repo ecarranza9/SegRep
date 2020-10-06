@@ -16,7 +16,7 @@
   },
   "production": {
     "username": "postgres",
-    "password": null,
+    "password": "",
     "database": "proyectomil",
     "host": "localhost",
     "dialect": "postgres"
