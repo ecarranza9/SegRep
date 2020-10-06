@@ -31,6 +31,7 @@ sequelize.sync({force:true})
 .then(()=>{
     console.log("Tablas creadas")
     console.log(process.env.NODE_ENV)
+    console.log(sequelize.options)
 })
 
 
