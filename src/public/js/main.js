@@ -11,6 +11,11 @@ var btnTicket = document.querySelector('#boton-estado')
 const host = window.location.host
 console.log(host)
 
+setTimeout(function() {
+
+$('#error').fadeOut(2000);
+
+},3000);
 
 window.onload = function () {
    setTimeout(function () {
