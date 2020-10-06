@@ -6,6 +6,7 @@ const CierreModel = require('./models/Cierre')
 const PedidotecnicoModel = require('./models/Pedidotecnico');
 const config = require('./config/config.json')
 
+console.log(process.env.NODE_ENV)
 
 if (process.env.NODE_ENV === 'production') {
     // the application is executed on Heroku ... use the postgres database
