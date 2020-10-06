@@ -30,6 +30,7 @@ const Usuario = UsuarioModel(sequelize,Sequelize);
 sequelize.sync({force:true})
 .then(()=>{
     console.log("Tablas creadas")
+    console.log(process.env.NODE_ENV)
 })
 
 
