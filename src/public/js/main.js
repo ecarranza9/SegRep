@@ -5,9 +5,9 @@ Loading(1000).init();
 
 setTimeout(function() {
 
-$('#error').fadeOut(2000);
+$('#error').fadeOut(1000);
 
-},3000);
+},1000);
 
 var mail = document.getElementById('mail')
 var telefono = document.getElementById('telefono');
