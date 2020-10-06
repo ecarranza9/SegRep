@@ -11,10 +11,10 @@ const usersRoutes = require('./routes/users.router');
 const adminRoutes = require('./routes/admin.router');
 const passport = require('passport');
 const moment = require('moment');
-const config = require('../config')
+require('dotenv').config()
 require('./config/passport.js');
 
-
+const port = process.env.PORT || 3000;
 
 //seteo de puertos y motor grafico.
 app.set('views', path.join(__dirname,'views'));
@@ -59,6 +59,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'uploads')))
 
 //activacion de puerto
-app.listen(config.PORT, () =>{
-    console.log(`Conectado al puerto: ${config.PORT}`)
+app.listen(port, () =>{
+    console.log(`Conectado al puerto: ${port}`)
 })

@@ -7,7 +7,7 @@ const PedidotecnicoModel = require('./models/Pedidotecnico');
 const config = require('./config/config.json')
 
 
-if (process.env.NODE_ENV === 'undefined') {
+if (process.env.NODE_ENV === 'production') {
     // the application is executed on Heroku ... use the postgres database
     sequelize = new Sequelize(config.production)
   } else {
