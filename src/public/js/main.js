@@ -1,14 +1,3 @@
-var Loading=(loadingDelayHidden=0)=>{let loading=null;const myLoadingDelayHidden=loadingDelayHidden;let imgs=[];let lenImgs=0;let counterImgsLoading=0;function incrementCounterImgs(){counterImgsLoading+=1;if(counterImgsLoading===lenImgs){hideLoading()}}function hideLoading(){if(loading!==null){loading.classList.remove('show');setTimeout(function(){loading.remove()},myLoadingDelayHidden)}}function init(){document.addEventListener('DOMContentLoaded',function(){loading=document.querySelector('.loading');imgs=Array.from(document.images);lenImgs=imgs.length;if(imgs.length===0){hideLoading()}else{imgs.forEach(function(img){img.addEventListener('load',incrementCounterImgs,false)})}})}return{'init':init}}
-
-Loading(1000).init();
-
-
-setTimeout(function() {
-
-$('#error').fadeOut(1000);
-
-},1000);
-
 var mail = document.getElementById('mail')
 var telefono = document.getElementById('telefono');
 var mail_input = document.getElementById('mail_input')
@@ -21,6 +10,16 @@ var modal_estado = document.getElementById('modal-estado');
 var btnTicket = document.querySelector('#boton-estado')
 const host = window.location.host
 console.log(host)
+
+
+window.onload = function () {
+   setTimeout(function () {
+   $(".jm-loadingpage").fadeOut("slow");;
+}, 3000)
+   mueveReloj()
+}
+
+
 mostrarModal(`http://${host}/pedido`)
 function mostrarModal(location){
    console.log(location)
@@ -156,6 +155,3 @@ modal_estado.innerHTML = `
 `
 }
 
-window.onload = function () {
-   mueveReloj()
-}
