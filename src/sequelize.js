@@ -5,11 +5,12 @@ const TecnicoModel = require('./models/Tecnico');
 const CierreModel = require('./models/Cierre')
 const PedidotecnicoModel = require('./models/Pedidotecnico');
 
+console.log(process.env.NODE_ENV)
 
 
-if (process.env.DATABASE_URL) {
+if (process.env.NODE_ENV === 'production') {
     // the application is executed on Heroku ... use the postgres database
-    sequelize = new Sequelize(process.env.DATABASE_URL, {
+    sequelize = new Sequelize({
       dialect:  'postgres',
       protocol: 'postgres',
       logging:  true //false
@@ -17,10 +18,8 @@ if (process.env.DATABASE_URL) {
   } else {
     // the application is executed on the local machine
     sequelize = new Sequelize({
-        dialect:'postgres',
-        protocol: 'postgres',
-        logging: true //false
-        
+        dialect:'sqlite',
+        storage: './proyectomil'
     })
   }
 
@@ -31,12 +30,12 @@ const Pedidotecnico = PedidotecnicoModel(sequelize,Sequelize);
 const Cierre = CierreModel(sequelize,Sequelize);
 const Usuario = UsuarioModel(sequelize,Sequelize);
 
-/*
+
 sequelize.sync({force:true})
 .then(()=>{
     console.log("Tablas creadas")
 })
-*/
+
 
 
 module.exports = {
