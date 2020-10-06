@@ -8,16 +8,10 @@ const config = require('./config/config.json')
 
 console.log(process.env.NODE_ENV)
 
-if (process.env.NODE_ENV === 'production') {
+
     // the application is executed on Heroku ... use the postgres database
     sequelize = new Sequelize(config.production)
-  } else {
-    // the application is executed on the local machine
-    sequelize = new Sequelize({
-        dialect:'sqlite',
-        storage: './proyectomil'
-    })
-  }
+  
 
 
 const Pedido = PedidoModel(sequelize,Sequelize);
