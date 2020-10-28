@@ -16,7 +16,7 @@
   },
   "production": {
     "username": "postgres",
-    "password": "postgres",
+    "password": "RootUser2020",
     "database": "proyectomil",
     "host": "localhost",
     "dialect": "postgres"
